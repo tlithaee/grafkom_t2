@@ -6,10 +6,10 @@
     <title>Tugas 2 Grafkom</title>
     <style>
         body {
-            background-color: #2d2d2d;
+            background-color: #484848;
         }
         canvas {
-            background-color: white;
+            background-color: rgb(227, 227, 227);
             display: block;
         }
         #canvasholder {
@@ -18,6 +18,7 @@
         }
         h1,h2{
             font-family: sans-serif;
+            color: rgb(202, 202, 202);
         }
     </style>
 </head>
@@ -29,7 +30,7 @@
     <h2>
         Grafika Komputer A - Tugas 2
     </h2>
-    <canvas id="canvas" width="500" height="500"></canvas>
+    <canvas id="canvas" width="700" height="700"></canvas>
 
     <script>
 
@@ -39,51 +40,59 @@
     
         function circle() {
             g.beginPath();
-            g.arc(-20,0,50,0,2*Math.PI,false);
+            g.arc(0,0,15,0,2*Math.PI,false);
             g.fill();
         }
     
         function square() {
-            g.fillRect(-70,-100,100,100);
+            g.fillRect(0,0,160,250);
         }
     
         function triangle() {
             g.beginPath();
-            g.moveTo(-50,50);
-            g.lineTo(50,50);
+            g.moveTo(-80,50);
+            g.lineTo(80,50);
             g.lineTo(0,-50);
             g.closePath();
             g.fill();
+        }
+
+        function square1() {
+            g.fillRect(0,0,100,650);
         }
     
         //********************************************************************************
    
         function draw() {
-             g.fillStyle = "white";
-             g.fillRect(0,0,600,600);
-             g.fillStyle = "black";
-    
              // TODO: Delete the rest of this function, and replace it with code
              // to draw the assigned pictures, using ONLY the functions
              // square(), fillText(), and circle() along with color changes and
              // and transformations !!
     
-             //------------------------------- sample drawing -----------------------------
-    
-             /* g.save();
-             g.translate(150,150);
-             circle();  // draw a circle of radius 50 centered at (0,0)
+             g.save();
+             g.translate(350,100);
+             g.fillStyle = "black";
+             triangle(); 
+             g.restore();
+
+             g.save();
+             g.translate(350,120);
+             g.fillStyle = "white";
+             circle();  
              g.restore();
     
              g.save();
-             g.translate(450,150);
-             triangle(); // draw a triangle, centered at (0,0)
+             g.translate(270,150);
+             g.fillStyle = "black";
+             square();  
              g.restore();
-    
+
              g.save();
-             g.translate(150,450);
-             square();  // draw a square with side 100, centered at (0,0)
-             g.restore(); */
+             g.translate(677,400);
+             g.rotate(Math.PI/2);
+             g.fillStyle = "red";
+             square1();  
+             g.restore();
     
              // draws a red X, consisting of two transformed squares, centered at (0,0)
              // and then moved to the lower right quadrant
@@ -106,10 +115,10 @@
     
              g.restore(); */
     
-             /* g.font = "40px Arial";
+             g.font = "36px sans-serif";
              g.fillStyle = "black";
              g.textAlign = "center";
-             g.fillText("Grafika Kelas A 2023", canvas.width/2, canvas.height/2); */
+             g.fillText("Grafika Kelas A 2023", canvas.width/2, canvas.height/1.5);
     
              //-------------------------------------------------------------------------
     
