@@ -12,10 +12,10 @@
             background-color: rgb(227, 227, 227);
             display: block;
         }
-        /* #canvasholder {
+        #canvasholder {
             border:2px solid rgb(202, 202, 202);
             float: left;
-        } */
+        }
 
         h1,h2{
             font-family: sans-serif;
@@ -39,7 +39,7 @@
         
             function circle() {
                 g.beginPath();
-                g.arc(0,0,15,0,2*Math.PI,false);
+                g.arc(0,0,20,0,2*Math.PI,false);
                 g.fill();
             }
         
@@ -110,6 +110,37 @@
                  // jendela kiri
 
                  g.save();
+                 g.translate(167,230);
+                 g.fillStyle = "black";
+                 g.fillRect(0,0,20,170); 
+                 g.restore();
+
+                 g.save();
+                 g.translate(270,305);
+                 g.fillStyle = "black";
+                 g.rotate(Math.PI/2);
+                 g.fillRect(0,0,20,190); 
+                 g.restore();
+                
+
+                // jendela kanan
+
+                 g.save();
+                 g.translate(513,230);
+                 g.fillStyle = "black";
+                 g.fillRect(0,0,20,200); 
+                 g.restore();
+
+                 g.save();
+                 g.translate(630,305);
+                 g.fillStyle = "black";
+                 g.rotate(Math.PI/2);
+                 g.fillRect(0,0,20,200); 
+                 g.restore();
+
+                 //pintu
+
+                 g.save();
                  g.translate(350,300);
                  g.fillStyle = "white";
                  g.rotate(Math.PI);
@@ -122,6 +153,8 @@
                  g.fillRect(0,0,50,85); 
                  g.restore();
     
+                 //capt
+
                  g.save();
                  g.translate(677,400);
                  g.rotate(Math.PI/2);
