@@ -6,16 +6,17 @@
     <title>Tugas 2 Grafkom</title>
     <style>
         body {
-            background-color: #484848;
+            background-color: #333333;
         }
         canvas {
             background-color: rgb(227, 227, 227);
             display: block;
         }
-        #canvasholder {
+        /* #canvasholder {
             border:2px solid rgb(202, 202, 202);
-            float: left; /* This makes the border exactly fit the canvas. */
-        }
+            float: left;
+        } */
+
         h1,h2{
             font-family: sans-serif;
             color: rgb(202, 202, 202);
@@ -30,123 +31,96 @@
     <h2>
         Grafika Komputer A - Tugas 2
     </h2>
-    <canvas id="canvas" width="700" height="700"></canvas>
 
-    <script>
+    <canvas id="canvas" width="700" height="600">
+        <script>
 
-        let g;   // A 2D graphics context for drawing on the canvas.
-    
-        //***************** Functions for drawing the three basic shapes *****************
-    
-        function circle() {
-            g.beginPath();
-            g.arc(0,0,15,0,2*Math.PI,false);
-            g.fill();
-        }
-    
-        function square() {
-            g.fillRect(0,0,160,250);
-        }
-    
-        function triangle() {
-            g.beginPath();
-            g.moveTo(-80,50);
-            g.lineTo(80,50);
-            g.lineTo(0,-50);
-            g.closePath();
-            g.fill();
-        }
-
-        function square1() {
-            g.fillRect(0,0,100,650);
-        }
-    
-        //********************************************************************************
-   
-        function draw() {
-             // TODO: Delete the rest of this function, and replace it with code
-             // to draw the assigned pictures, using ONLY the functions
-             // square(), fillText(), and circle() along with color changes and
-             // and transformations !!
-    
-             g.save();
-             g.translate(350,100);
-             g.fillStyle = "black";
-             triangle(); 
-             g.restore();
-
-             g.save();
-             g.translate(350,120);
-             g.fillStyle = "white";
-             circle();  
-             g.restore();
-    
-             g.save();
-             g.translate(270,150);
-             g.fillStyle = "black";
-             square();  
-             g.restore();
-
-             g.save();
-             g.translate(677,400);
-             g.rotate(Math.PI/2);
-             g.fillStyle = "red";
-             square1();  
-             g.restore();
-    
-             // draws a red X, consisting of two transformed squares, centered at (0,0)
-             // and then moved to the lower right quadrant
-    
-             /* g.save();
-             g.fillStyle = "red";
-             g.translate(450,450);
-    
-             g.save();
-             g.rotate(Math.PI/4);
-             g.scale(2, 0.5);
-             square();
-             g.restore();
-    
-             g.save();
-             g.rotate(-Math.PI/4);
-             g.scale(2,0.5);
-             square();
-             g.restore();
-    
-             g.restore(); */
-    
-             g.font = "36px sans-serif";
-             g.fillStyle = "black";
-             g.textAlign = "center";
-             g.fillText("Grafika Kelas A 2023", canvas.width/2, canvas.height/1.5);
-    
-             //-------------------------------------------------------------------------
-    
-         } // end of draw()
+            let g;  
         
-           
-        /**
-         * The init() funciton is called after the page has been
-         * loaded.  It initializes the canvas and graphics variables,
-         * and it calls draw() to draw on the canvas.  If an error
-         * occurs, a message is displayed in place of the canvas.
-         */
-        function init() {
-            try {
-                let canvas = document.getElementById("canvas");
-                g = canvas.getContext("2d");
-            } catch(e) {
-                document.getElementById("canvasholder").innerHTML =
-                   "<p>Canvas graphics is not supported.<br>" +
-                   "An error occurred while initializing graphics.</p>";
-                return;
+            //***************** Functions for drawing the three basic shapes *****************
+        
+            function circle() {
+                g.beginPath();
+                g.arc(0,0,15,0,2*Math.PI,false);
+                g.fill();
             }
-            draw();
-        }
         
-        window.onload = init; // arranges for function init to be called when page is loaded
+            function square() {
+                g.fillRect(0,0,160,250);
+            }
         
-    </script>
+            function triangle() {
+                g.beginPath();
+                g.moveTo(-80,50);
+                g.lineTo(80,50);
+                g.lineTo(0,-50);
+                g.closePath();
+                g.fill();
+            }
     
+            //********************************************************************************
+       
+            function draw() {
+                 // TODO: Delete the rest of this function, and replace it with code
+                 // to draw the assigned pictures, using ONLY the functions
+                 // square(), fillText(), and circle() along with color changes and
+                 // and transformations !!
+        
+                 g.save();
+                 g.translate(350,100);
+                 g.fillStyle = "black";
+                 triangle(); 
+                 g.restore();
+    
+                 g.save();
+                 g.translate(350,120);
+                 g.fillStyle = "white";
+                 circle();  
+                 g.restore();
+        
+                 g.save();
+                 g.translate(270,150);
+                 g.fillStyle = "black";
+                 square();  
+                 g.restore();
+    
+                 g.save();
+                 g.translate(325,300);
+                 g.fillStyle = "white";
+                 g.fillRect(0,0,50,100); 
+                 g.restore();
+    
+                 g.save();
+                 g.translate(677,400);
+                 g.rotate(Math.PI/2);
+                 g.fillStyle = "red";
+                 g.fillRect(0,0,100,650);  
+                 g.restore();
+        
+                 g.font = "36px sans-serif";
+                 g.fillStyle = "white";
+                 g.textAlign = "center";
+                 g.fillText("Grafika Kelas A 2023", canvas.width/2, canvas.height/1.3);
+        
+                 //-------------------------------------------------------------------------
+        
+             } 
+    
+            function init() {
+                try {
+                    let canvas = document.getElementById("canvas");
+                    g = canvas.getContext("2d");
+                } catch(e) {
+                    document.getElementById("canvasholder").innerHTML =
+                       "<p>Canvas graphics is not supported.<br>" +
+                       "An error occurred while initializing graphics.</p>";
+                    return;
+                }
+                draw();
+            }
+            
+            window.onload = init; // arranges for function init to be called when page is loaded
+        </script>
+    </canvas> 
 </body>
 </html>
